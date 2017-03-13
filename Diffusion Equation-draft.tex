@@ -1,0 +1,21 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[singlespacing]{setspace}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{listings} 
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\title{PHY566 - Diffusion Equation}
+\author{Tianyu Dai}
+\begin{document}
+\date{}
+\maketitle
+The diffusion equation is 
+$$\frac{\partial\phi(\vec r, t)}{\partial t}=D\nabla^2 \phi(\vec r, t)$$
+where $D=2$ is a diffusion constant. \\
+For a linear diffusion equation, 
+$$\frac{\partial\phi(\vec r, t)}{\partial t}=D\frac{d^2\phi(\vec r, t)}{dx^2}$$
+The numerical solution is 
+$$\frac{y_{j+1, i}-y_{j, i}}{\Delta t}=D\frac{y_{j, i+1}+y_{j, i-1}-2y_{j, i}}{\Delta x^2}$$
+$$\Rightarrow y_{j+1, i}=y_{i, j}+\frac{D\Delta t}{\Delta x^2}(y_{j, i+1}+y_{j, i-1}-2y_{j, i})$$
+\end{document}
