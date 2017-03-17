@@ -1,4 +1,5 @@
 import pylab as pl
+import numpy as np
 import random
 
 time = 10000000
@@ -48,6 +49,11 @@ for i in range(time):
     xB, yB = (int(molB[B,0]), int(molB[B,1])) # check for boundary condition
     moveB = random.choice([1,2,3,4])
     Diffusion(B,moveB,xB,yB,sitesB,sitesA,molB)
+
+#sitesA=np.loadtxt('sitesA.txt')
+#sitesB=np.loadtxt('sitesB.txt')
+#molA=np.loadtxt('molA.txt')
+#molB=np.loadtxt('molB.txt')
     
 pl.plot(molA[:,0],molA[:,1],'r.', molB[:,0],molB[:,1],'b.')
 pl.xlim(0,119)
@@ -65,7 +71,12 @@ pl.xlabel('x')
 pl.ylabel('density')
 pl.legend(['nA(x)', 'nB(x)'], loc="right")
 pl.savefig('densities_5.pdf')
-pl.show()    
+pl.show()   
+
+np.savetxt('sitesA.txt', sitesA)
+np.savetxt('sitesB.txt', sitesB)
+np.savetxt('molA.txt', molA)
+np.savetxt('molB.txt', molB)
     
  
 
