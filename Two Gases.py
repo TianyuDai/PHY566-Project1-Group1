@@ -39,7 +39,6 @@ pl.imshow(sites, cmap='bwr')
 pl.title('Mixing of two Gases, t=%d' %time) 
 pl.xlabel('x') 
 pl.ylabel('y') 
-#pl.legend(['gas A', 'gas B'], loc="right") 
 pl.savefig('mixing_5.pdf') 
 pl.show()      
 
@@ -48,13 +47,13 @@ sumB=[0.0]*120
 for i in range (120):  
     for j in range (80):  
         if sites[j][i]==1:  
-            sumA[i]+=1 
-        elif sites[j][i]==-1:  
             sumB[i]+=1 
+        elif sites[j][i]==-1:  
+            sumA[i]+=1 
     sumA[i]/=80.0
     sumB[i]/=80.0
-pl.plot([i for i in range(120)], sumA, '-or')   
-pl.plot([i for i in range(120)], sumB, '-ob') 
+pl.plot([i for i in range(120)], sumA, '-ob')   
+pl.plot([i for i in range(120)], sumB, '-or') 
 pl.title('Linear population densities, t=%d' %time) 
 pl.xlabel('x') 
 pl.ylabel('density') 
