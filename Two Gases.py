@@ -35,7 +35,7 @@ for i in range(time):
     xm, ym = (mol[m][0], mol[m][1]) # check for boundary condition
     Diffusion(m,move,xm,ym) 
 
-pl.imshow(sites, cmap='BrBG') 
+pl.imshow(sites, cmap='bwr') 
 pl.title('Mixing of two Gases, t=%d' %time) 
 pl.xlabel('x') 
 pl.ylabel('y') 
@@ -55,7 +55,7 @@ for i in range (120):
     sumB[i]/=80.0
 pl.plot([i for i in range(120)], sumA, '-or')   
 pl.plot([i for i in range(120)], sumB, '-ob') 
-pl.title('Linear population densities, t=10000000') 
+pl.title('Linear population densities, t=%d' %time) 
 pl.xlabel('x') 
 pl.ylabel('density') 
 pl.legend(['nA(x)', 'nB(x)'], loc="right") 
