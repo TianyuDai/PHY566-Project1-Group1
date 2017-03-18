@@ -10,9 +10,9 @@ for j in range(100):
     mol = [[p/80+p/N*40, p%80] for p in range (2*N)]
     for i in range(int(time[j])):
         print j
-        r = random.randint(0,2*N*4-1) # pick a random location occupied by an melocule and the direction of move
-        move=r/(2*N)
-        m=r%(2*N)
+        R = random.randint(0,2*N*4-1) # pick a random location occupied by an melocule and the direction of move
+        move=R/(2*N)
+        m=R%(2*N)
         x, y = (mol[m][0], mol[m][1]) # check for boundary condition
         if move == 0 and y+1<80: 
             if not sites[y+1][x]: #decide whether a site is occupied already
