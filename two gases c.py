@@ -6,8 +6,8 @@ sumA=[0.0]*120
 sumB=[0.0]*120 
 
 for j in range(100):
-    sites = [[p/40-1 for p in range (120)] for q in range (80)]
-    mol = [[p/80+p/N*40, p%80] for p in range (2*N)]
+    sites = [[p/40-1 for p in range (120)] for q in range (80)] # a matrix to record whether a site is ocuppied by molecule of A or B
+    mol = [[p/80+p/N*40, p%80] for p in range (2*N)] # a matrix used to record all the melocules' coordinates
     for i in range(int(time[j])):
         print j
         R = random.randint(0,2*N*4-1) # pick a random location occupied by an melocule and the direction of move
