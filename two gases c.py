@@ -1,11 +1,12 @@
-import pylab as pl  
+np.savetxt('sumA_1.txt',sumA)
+np.savetxt('sumB_1.txt',sumB)import pylab as pl  
 import random 
 time = 500000000 
 N = 80*40 # number of gas molecules of each species 
 sumA=[0.0]*120 
 sumB=[0.0]*120 
 
-for j in range(100):
+for j in range(10):
     print j
     sites = [[p/40-1 for p in range (120)] for q in range (80)] # a matrix to record whether a site is ocuppied by molecule of A or B
     mol = [[p/80+p/N*40, p%80] for p in range (2*N)] # a matrix used to record all the melocules' coordinates
@@ -39,8 +40,11 @@ for j in range(100):
             if sites[l][k]==1:  
                 sumB[k]+=1 
             elif sites[l][k]==-1:  
-                sumA[k]+=1  
-    
+                sumA[k]+=1
+
+np.savetxt('sumA_1.txt',sumA)
+np.savetxt('sumB_1.txt',sumB)
+
 pl.plot([i for i in range(120)], [j/(80.0*100.0) for j in sumA], '-ob')   
 pl.plot([i for i in range(120)], [j/(80.0*100.0) for j in sumB], '-or') 
 pl.title(' Average linear population densities, t=%d' %time) 
@@ -48,5 +52,4 @@ pl.xlabel('x')
 pl.ylabel('density') 
 pl.legend(['nA(x)', 'nB(x)'], loc="right") 
 pl.savefig('average densities.pdf') 
-pl.show()
-    
+pl.show() 
