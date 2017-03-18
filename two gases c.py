@@ -5,7 +5,7 @@ N = 80*40 # number of gas molecules of each species
 sumA=[0.0]*120 
 sumB=[0.0]*120 
 
-def Diffusion(r,move,x,y,site):# where r is a random number from 0 to N-1, namely a random particle 
+def Diffusion(r,move,x,y):# where r is a random number from 0 to N-1, namely a random particle 
     # x and y are the coordinations of this particle, sites1 and sites2 corresponds to sitesA and sitesB, mol corresponds to molA or molB 
     if move == 0 and y+1<80: 
         if not sites[y+1][x]: #decide whether a site is occupied already
@@ -37,7 +37,7 @@ for j in range(100):
         move=R/(2*N)
         m=R%(2*N)
         xm, ym = (mol[m][0], mol[m][1]) # check for boundary condition
-        Diffusion(m,move,xm,ym,sites)
+        Diffusion(m,move,xm,ym)
     for k in range (120):  
         for l in range (80):  
             if sites[l][k]==1:  
