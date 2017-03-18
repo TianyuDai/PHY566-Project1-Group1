@@ -39,12 +39,10 @@ for j in range(100):
             if sites[l][k]==1:  
                 sumB[k]+=1 
             elif sites[l][k]==-1:  
-                sumA[k]+=1 
-        sumA[k]/=(80.0*100.0)
-        sumB[k]/=(80.0*100.0)    
+                sumA[k]+=1  
     
-pl.plot([i for i in range(120)], sumA, '-ob')   
-pl.plot([i for i in range(120)], sumB, '-or') 
+pl.plot([i for i in range(120)], [j/(80.0*100.0) for j in sumA], '-ob')   
+pl.plot([i for i in range(120)], [j/(80.0*100.0) for j in sumB], '-or') 
 pl.title(' Average linear population densities, t=%d' %time) 
 pl.xlabel('x') 
 pl.ylabel('density') 
