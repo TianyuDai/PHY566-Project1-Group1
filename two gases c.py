@@ -8,7 +8,7 @@ sumB=[0.0]*120
 for j in range(100):
     sites = [[p/40-1 for p in range (120)] for q in range (80)] # a matrix to record whether a site is ocuppied by molecule of A or B
     mol = [[p/80+p/N*40, p%80] for p in range (2*N)] # a matrix used to record all the melocules' coordinates
-    for i in range(int(time)):
+    for i in range(time):
         R = random.randint(0,2*N*4-1) # pick a random location occupied by an melocule and the direction of move
         move=R/(2*N)
         m=R%(2*N)
@@ -44,7 +44,7 @@ for j in range(100):
     
 pl.plot([i for i in range(120)], sumA, '-ob')   
 pl.plot([i for i in range(120)], sumB, '-or') 
-pl.title(' Average linear population densities') 
+pl.title(' Average linear population densities, t=%d' %time) 
 pl.xlabel('x') 
 pl.ylabel('density') 
 pl.legend(['nA(x)', 'nB(x)'], loc="right") 
