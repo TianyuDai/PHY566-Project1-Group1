@@ -1,6 +1,6 @@
-np.savetxt('sumA_1.txt',sumA)
-np.savetxt('sumB_1.txt',sumB)import pylab as pl  
-import random 
+import pylab as pl  
+import random
+import numpy as np
 time = 500000000 
 N = 80*40 # number of gas molecules of each species 
 sumA=[0.0]*120 
