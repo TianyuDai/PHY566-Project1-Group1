@@ -1,7 +1,7 @@
 import pylab as pl  
 import random
 import numpy as np
-time = 500000000 
+time = 100000000 
 N = 80*40 # number of gas molecules of each species 
 sumA=[0.0]*120 
 sumB=[0.0]*120 
