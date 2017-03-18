@@ -1,6 +1,6 @@
 import pylab as pl  
 import random 
-time = pl.linspace(10000000,1000000000,100) 
+time = 500000000 
 N = 80*40 # number of gas molecules of each species 
 sumA=[0.0]*120 
 sumB=[0.0]*120 
@@ -8,8 +8,7 @@ sumB=[0.0]*120
 for j in range(100):
     sites = [[p/40-1 for p in range (120)] for q in range (80)] # a matrix to record whether a site is ocuppied by molecule of A or B
     mol = [[p/80+p/N*40, p%80] for p in range (2*N)] # a matrix used to record all the melocules' coordinates
-    for i in range(int(time[j])):
-        print j
+    for i in range(int(time)):
         R = random.randint(0,2*N*4-1) # pick a random location occupied by an melocule and the direction of move
         move=R/(2*N)
         m=R%(2*N)
