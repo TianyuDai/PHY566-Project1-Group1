@@ -27,7 +27,7 @@ def random_walk(n):#return final walker postion, xmean, x2mean, and r2mean
         xmean[i+1]=float(xsum)/(i+1)#sum{x_n}/n where n=i
         x2mean[i+1]=float(x2sum)/(i+1)#sum{x_n^2}/n where n=i
         r2mean[i+1]=float(r2sum)/(i+1)#sum{r_n^2}/n where n=i
-    return (walker,xmean,x2mean,r2mean)#return final walker postion, xmean, x2mean, and r2mean
+    return (xmean,x2mean,r2mean)#return final walker postion, xmean, x2mean, and r2mean
 
 walks=10000#number of different walks
 '''
@@ -38,9 +38,9 @@ x2_average_sum=[0.0]*(n+1)
 r2_average_sum=[0.0]*(n+1)
 for i in range(walks):
     newdata=random_walk(n)
-    x_average_sum=[x_average_sum[k]+newdata[1][k] for k in range(n+1)]
-    x2_average_sum=[x2_average_sum[k]+newdata[2][k] for k in range(n+1)]
-    r2_average_sum=[r2_average_sum[k]+newdata[3][k] for k in range(n+1)]
+    x_average_sum=[x_average_sum[k]+newdata[0][k] for k in range(n+1)]
+    x2_average_sum=[x2_average_sum[k]+newdata[1][k] for k in range(n+1)]
+    r2_average_sum=[r2_average_sum[k]+newdata[2][k] for k in range(n+1)]
 x_average=[x_average_sum[k]/walks for k in range(n+1)]#<x_n>
 x2_average=[x2_average_sum[k]/walks for k in range(n+1)]#<x_n^2>
 r2_average=[r2_average_sum[k]/walks for k in range(n+1)]#<r^2>
@@ -48,7 +48,7 @@ r2_average=[r2_average_sum[k]/walks for k in range(n+1)]#<r^2>
 pl.plot(x_average,'.-',label='$<x_n>$')
 pl.plot(x2_average,'s-',label='$<x_n^2>$')
 pl.plot(r2_average,'o-',label='$<r^2>$')
-pl.ylim(0, 50)
+pl.ylim(-5, 50)
 pl.legend(loc=2)
 pl.savefig('RandomWalk.pdf')
 pl.show()
