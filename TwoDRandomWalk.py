@@ -27,7 +27,7 @@ def random_walk(n):#return final walker postion, xmean, x2mean, and r2mean
         xmean[i+1]=float(xsum)/(i+1)#sum{x_n}/n where n=i
         x2mean[i+1]=float(x2sum)/(i+1)#sum{x_n^2}/n where n=i
         r2mean[i+1]=float(r2sum)/(i+1)#sum{r_n^2}/n where n=i
-    return (xmean,x2mean,r2mean)#return final walker postion, xmean, x2mean, and r2mean
+    return (xmean,x2mean,r2mean)#return xmean, x2mean, and r2mean
 
 walks=10000#number of different walks
 '''
