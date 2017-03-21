@@ -6,11 +6,11 @@ N=30000 			# time, denote as j
 dx=1
 dt=0.01
 x=pylab.linspace(-dx*M, dx*M, (2*M+1))
-phi=[[pylab.exp(-10000*i*i) for i in x] for j in range (N)] 						# Initialize phi as sharply peaked around x=0
+phi=[[pylab.exp(-10*i*i) for i in x] for j in range (N)] 						# Initialize phi as sharply peaked around x=0
 num_sigma=[]
 for j in range (N-1): 
 	for i in range (2*M): 
-		phi[j+1][i]=phi[j][i]+D*dt/dx/dx*(phi[j][i+1]+phi[j][i-1]-2*phi[j][i]) 		# Iteration of phi
+		phi[j+1][i]=phi[j][i]+D*dt/dx/dx*(phi[j][i+1]+phi[j][i-1]-2*phi[j][i]) 		# Iteration of phi to get the value of each x for every time snapshot
 def Normal(x, sigma):  																# Normal distribution
 	return 1/pylab.sqrt(2*pylab.pi*sigma*sigma)*pylab.exp(-x*x/2/sigma/sigma)
 def cal(k):  																		# Fitting value of sigma at different time
