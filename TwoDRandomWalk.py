@@ -37,10 +37,11 @@ x_average=[k/walks for k in x_average_sum]#<x_n>
 x2_average=[k/walks for k in x2_average_sum]#<x_n^2>
 r2_average=[k/walks for k in r2_average_sum]#<r^2>
 
-pl.plot(x_average,'.-',label='$<x_n>$')
-pl.plot(x2_average,'s-',label='$<x_n^2>$')
+pl.plot(x_average,'s-',label='$<x_n>$')
+pl.plot(x2_average,'.-',label='$<x_n^2>$')
 pl.plot(r2_average,'o-',label='$<r^2>$')
 pl.ylim(0, 50)
+pl.xlabel('T')
 pl.legend(loc=2)
 pl.savefig('RandomWalk.pdf')
 pl.show()
