@@ -14,7 +14,7 @@ def random_walk(n):#return final walker postion, xmean, x2mean, and r2mean
     for i in range(n):
         movestep=random.randint(0,3)#random move in four equally probable directions
         if movestep==0:
-            walker[0]+=1
+            walker[0]+=1 # add 1 to the number of total steps in this direction
         elif movestep==1:
             walker[0]-=1
         elif movestep==2:
