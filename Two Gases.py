@@ -1,6 +1,6 @@
 import pylab as pl  
 import random 
-time = 500000000 
+time = 5*10^8 # the number of steps we'd like to compute 
 N = 80*40 # number of gas molecules of each species 
 sites = [[i/40-1 for i in range (120)] for j in range (80)]# recod whether a site is occupied, 1 denotes molecule A, -1 denotes molecule B and 0 deontes umoccupied 
 mol = [[i/80+i/N*40, i%80] for i in range (2*N)] # Initialize coordinates of every molecule, first N rows are molecule A and second N row are molecule B 
