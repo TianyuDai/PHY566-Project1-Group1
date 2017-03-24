@@ -48,6 +48,7 @@ r2_average=[r2_average_sum[k]/walks for k in range(n+1)]#<r^2>
 pl.plot(x_average,'.-',label='$<x_n>$')
 pl.plot(x2_average,'s-',label='$<x_n^2>$')
 pl.plot(r2_average,'o-',label='$<r^2>$')
+pl.xlabel('n')
 pl.ylim(-10, 100)
 pl.legend(loc=2)
 pl.savefig('RandomWalk.pdf')
