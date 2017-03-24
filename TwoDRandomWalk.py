@@ -5,12 +5,12 @@ nlist=[i for i in range(n)]#time list
 
 def random_walk(n):#return final walker postion, xmean, x2mean, and r2mean
     walker=[0,0]#initialize walker
-    xsum=0#initialize sum{x_n}
-    x2sum=0#initialize sum{x^2_n}
-    r2sum=0#initialize sum{r^2_n}
-    xmean=[0.0]*(n+1)#initialize sum{x_n}/n
-    x2mean=[0.0]*(n+1)#initialize sum{x^2_n}/n
-    r2mean=[0.0]*(n+1)#initialize sum{r^2_n}/n
+    x=0
+    x2=0
+    r2=0
+    xlist=[0.0]*(n+1)
+    x2list=[0.0]*(n+1)
+    r2list=[0.0]*(n+1)
     for i in range(n):
         movestep=random.randint(0,3)#random move in four equally probable directions
         if movestep==0:
@@ -21,13 +21,13 @@ def random_walk(n):#return final walker postion, xmean, x2mean, and r2mean
             walker[1]+=1
         else:
             walker[1]-=1
-        xsum+=walker[0]#sum x_n from 0 to i
-        x2sum+=(walker[0])**2#sum x_n^2 from 0 to i
-        r2sum+=(walker[0])**2+(walker[1])**2#sum r_n^2 from 0 to i
-        xmean[i+1]=float(xsum)/(i+1)#sum{x_n}/n where n=i
-        x2mean[i+1]=float(x2sum)/(i+1)#sum{x_n^2}/n where n=i
-        r2mean[i+1]=float(r2sum)/(i+1)#sum{r_n^2}/n where n=i
-    return (xmean,x2mean,r2mean)#return xmean, x2mean, and r2mean
+        x=walker[0]#x
+        x2=(walker[0])**2#x^2
+        r2=(walker[0])**2+(walker[1])**2#r^2=x^2+y^2
+        xlist[i+1]=float(x)#sum{x_n}/n where n=i
+        x2list[i+1]=float(x2)#sum{x_n^2}/n where n=i
+        r2list[i+1]=float(r2)#sum{r_n^2}/n where n=i
+    return (xlist,x2list,r2list)#return xmean, x2mean, and r2mean
 
 walks=10000#number of different walks
 '''
@@ -48,7 +48,7 @@ r2_average=[r2_average_sum[k]/walks for k in range(n+1)]#<r^2>
 pl.plot(x_average,'.-',label='$<x_n>$')
 pl.plot(x2_average,'s-',label='$<x_n^2>$')
 pl.plot(r2_average,'o-',label='$<r^2>$')
-pl.ylim(-5, 50)
+pl.ylim(-10, 100)
 pl.legend(loc=2)
 pl.savefig('RandomWalk.pdf')
 pl.show()
